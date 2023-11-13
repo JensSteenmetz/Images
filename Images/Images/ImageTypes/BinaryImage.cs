@@ -26,7 +26,7 @@
         public override Image<byte> Copy()
             => new(this);
 
-        public static implicit operator BinaryImage(GrayscaleImage image)
+        public static explicit operator BinaryImage(GrayscaleImage image)
             => Cast<GrayscaleImage, BinaryImage>(image);
     }
 }

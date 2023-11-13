@@ -38,7 +38,7 @@ namespace Images
         public override Image<byte> Copy()
             => new(this);
 
-        public static implicit operator GrayscaleImage(BinaryImage image)
+        public static explicit operator GrayscaleImage(BinaryImage image)
             => Cast<BinaryImage, GrayscaleImage>(image);
     }
 

@@ -14,12 +14,12 @@
             GrayscaleImage randomImage = blackImage.ApplyPointOperation((Func<byte, byte>)RandomValue);
 
             /// Threshold the image (alternative point operation syntax).
-            BinaryImage thresholded = randomImage.ApplyPointOperation<GrayscaleImage, byte>(Threshold);
+            BinaryImage thresholded = (BinaryImage)randomImage.ApplyPointOperation<GrayscaleImage, byte>(Threshold);
 
-            /// Implicitly cast the original grayscale image to binary. 
+            /// Explicitly cast the original grayscale image to binary. 
             /// The underlying pixel data is shared between 'randomImage' and 'casted', 
             /// but accessing the pixel values will now return either 0 or 255.
-            BinaryImage casted = randomImage;
+            BinaryImage casted = (BinaryImage)randomImage;
 
             /// Create a (black-and-white) color image from the binary image.
             ColorImage colorImage = new(casted);
